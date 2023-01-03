@@ -12,6 +12,12 @@ def myfilter(func, iterable):
             a.append(i)
     return a
 
+def myreduce(func,iterable):
+    element = ''
+    for i in iterable:
+        element = func(element,i)
+    return element
+
 # 1-A
 n = int(input('Enter a number: '))
 z = mymap(lambda x : x**2, range(1,n+1,2))
@@ -41,3 +47,7 @@ l = input("Enter a line: ").split()
 suffix = input("Enter a suffix: ")
 ok = myfilter(lambda x : x.endswith(suffix), l)
 print(ok)
+
+# 3-A
+name = input("Enter a name: ").split()
+print(myreduce(lambda x,y: x + y[0], name))
