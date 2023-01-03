@@ -11,6 +11,7 @@ def myfilter(func, iterable):
         if func(i):
             a.append(i)
     return a
+
 # 1-A
 n = int(input('Enter a number: '))
 z = mymap(lambda x : x**2, range(1,n+1,2))
@@ -27,7 +28,7 @@ print(x)
 
 # 2-A
 strings = ['1sa', '3sjf', 'myname', 'wordas', 'jdi6bd']
-s = myfilter(lambda x : x[0].isdigit() , strings)
+s = myfilter(lambda x : not x[0].isdigit() , strings)
 print(s)
 
 # 2-B
@@ -36,6 +37,7 @@ o = myfilter(lambda x : len(x) > 6, k)
 print(o)
 
 # 2-C
-l = 'Hi my name is rachit i like dancing and coding it is the best thing to do in the morning !'
-ok = myfilter(lambda x : 'ing' in x, l.split())
+l = input("Enter a line: ").split()
+suffix = input("Enter a suffix: ")
+ok = myfilter(lambda x : x.endswith(suffix), l)
 print(ok)
